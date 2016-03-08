@@ -20,4 +20,3 @@ class Commodity(object):
         self.unit = unit  # 单位
         self.unit_price = unit_price  # 单价
         self.classification = classification  # 类别
-

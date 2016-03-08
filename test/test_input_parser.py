@@ -11,14 +11,11 @@ from input_parser import InputParser
 
 class Test(unittest.TestCase):
 
-
     def setUp(self):
         pass
 
-
     def tearDown(self):
         pass
-
 
     def testParse01(self):
         receipt = InputParser.parse()
@@ -27,5 +24,4 @@ class Test(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

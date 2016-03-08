@@ -12,14 +12,11 @@ import cash_register
 
 class Test(unittest.TestCase):
 
-
     def setUp(self):
         pass
 
-
     def tearDown(self):
         pass
-
 
     def test_calculate_final_price_buy_2_get_1_01(self):
         '''
@@ -32,8 +29,8 @@ class Test(unittest.TestCase):
         final_price = ori.final_price
         delta = 0.001
         aim_final_price = cash_register.get_commodity_unit_price(barcode) * 2
-        self.assertTrue(final_price < aim_final_price+delta)
-        self.assertTrue(final_price > aim_final_price-delta)
+        self.assertTrue(final_price < aim_final_price + delta)
+        self.assertTrue(final_price > aim_final_price - delta)
 
     def test_calculate_final_price_buy_2_get_1_02(self):
         '''
@@ -46,9 +43,8 @@ class Test(unittest.TestCase):
         final_price = ori.final_price
         delta = 0.001
         aim_final_price = cash_register.get_commodity_unit_price(barcode) * 2
-        self.assertTrue(final_price < aim_final_price+delta)
-        self.assertTrue(final_price > aim_final_price-delta)
-
+        self.assertTrue(final_price < aim_final_price + delta)
+        self.assertTrue(final_price > aim_final_price - delta)
 
     def test_calculate_final_price_buy_2_get_1_03(self):
         '''
@@ -61,8 +57,8 @@ class Test(unittest.TestCase):
         final_price = ori.final_price
         delta = 0.001
         aim_final_price = cash_register.get_commodity_unit_price(barcode) * 3
-        self.assertTrue(final_price < aim_final_price+delta)
-        self.assertTrue(final_price > aim_final_price-delta)
+        self.assertTrue(final_price < aim_final_price + delta)
+        self.assertTrue(final_price > aim_final_price - delta)
 
     def test_calculate_final_price_discount_of_5_percent_01(self):
         '''
@@ -74,11 +70,11 @@ class Test(unittest.TestCase):
         ori.calculate_final_price()
         final_price = ori.final_price
         delta = 0.001
-        aim_final_price = cash_register.get_commodity_unit_price(barcode) * quantity * 0.95
-        self.assertTrue(final_price < aim_final_price+delta)
-        self.assertTrue(final_price > aim_final_price-delta)
+        aim_final_price = cash_register.get_commodity_unit_price(
+            barcode) * quantity * 0.95
+        self.assertTrue(final_price < aim_final_price + delta)
+        self.assertTrue(final_price > aim_final_price - delta)
 
 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

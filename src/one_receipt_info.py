@@ -38,7 +38,7 @@ class OneReceiptInfo(object):
         按照买二赠一的规则，对本购物信息进行转换
         '''
         remainder = self.quantity % 3
-        self.quantity_get = (self.quantity-remainder) / 3
+        self.quantity_get = (self.quantity - remainder) / 3
         self.quantity = self.quantity - self.quantity_get
         self.final_price = self.quantity * self.unit_price
         self.saved_money = self.quantity_get * self.unit_price
@@ -68,6 +68,6 @@ class OneReceiptInfo(object):
             self._do_discount_of_5_percent()
             self.is_discount_of_5_percent = True
             return
-        
+
         # 两种优惠都不满足时， self.final_price 还未被赋有效值，所以这里计算一把
         self.final_price = self.unit_price * self.quantity

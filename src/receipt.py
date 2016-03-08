@@ -5,6 +5,7 @@ Created on 2016年3月6日
 @author: Administrator
 '''
 
+
 class Receipt(object):
     '''
     小票

@@ -40,7 +40,7 @@ class ReceiptPrinter(object):
         is_saved_money = False  # 是否有省钱
         sum_saved_money = 0.0
         sum_money = 0.0
-        
+
         receipts = []
         buy_2_get_1_s = []
         for barcode, quantity in self.receipt.receipt_infos.iteritems():
@@ -55,16 +55,16 @@ class ReceiptPrinter(object):
             is_saved_money = True if saved_money > 0 else False
             sum_saved_money += saved_money
             sum_money += final_price
-            
+
             saved_str = ''
             if ori.is_discount_of_5_percent:
                 saved_str = '，节省{:.2f}(元)'.format(saved_money)
-                
+
             if ori.is_buy_2_get_1:
                 buy_2_get_1_str = self._ONE_BUY_2_GET_1_TEMPLATE.format(
-                        name, ori.quantity_get, unit)
+                    name, ori.quantity_get, unit)
                 buy_2_get_1_s.append(buy_2_get_1_str)
-            
+
             one_receipt = self._ONE_RECEIPT_TEMPLATE.format(
                 name, quantity, unit, unit_price, final_price, saved_str)
             receipts.append(one_receipt)
@@ -76,11 +76,11 @@ class ReceiptPrinter(object):
         all_buy_2_get_1_str = ''
         if buy_2_get_1_s:
             all_buy_2_get_1_str = self._BUY_2_GET_1_TEMPLATE.format(
-                    '\n'.join(buy_2_get_1_s))
+                '\n'.join(buy_2_get_1_s))
 
         output_str = self._MAIN_TEMPLATE.format(
-                '\n'.join(receipts), all_buy_2_get_1_str,
-                sum_money, total_saved_str)
-        
+            '\n'.join(receipts), all_buy_2_get_1_str,
+            sum_money, total_saved_str)
+
         print output_str
         return output_str

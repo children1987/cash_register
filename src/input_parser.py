@@ -18,9 +18,9 @@ class InputParser(object):
     '''
      ‰»ÎΩ‚Œˆ∆˜
     '''
-    
+
     DEFAULT_INPUT_FILE = r'input\input.json'
-    
+
     @staticmethod
     def parse_line(s):
         '''
@@ -28,7 +28,7 @@ class InputParser(object):
         '''
         if '-' not in s:
             return s, 1
-        
+
         try:
             barcode, quantity = s.split('-')
             quantity = int(quantity)
@@ -38,16 +38,16 @@ class InputParser(object):
 
     @classmethod
     def parse(cls, input_file=None):
-        
+
         if input_file is None:
             input_file = cls.DEFAULT_INPUT_FILE
-        
+
         f = open(input_file)
 
         shopping_list = json.load(f, encoding='GBK')
 
         receipt = Receipt()
-        
+
         for each in shopping_list:
             barcode, quantity = cls.parse_line(each)
             one_receipt_info = OneReceiptInfo(barcode, quantity)

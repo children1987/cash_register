@@ -12,14 +12,11 @@ from receipt_printer import ReceiptPrinter
 
 class Test(unittest.TestCase):
 
-
     def setUp(self):
         pass
 
-
     def tearDown(self):
         pass
-
 
     def test01(self):
         receipt = InputParser.parse()
@@ -86,6 +83,24 @@ class Test(unittest.TestCase):
 '''
         self.assertEquals(act, dst)
 
+    def test05(self):
+        '''
+        购买的“买二送一”商品达到赠送条件后，又多买了1个
+        '''
+        receipt = InputParser.parse(r'input\input05.json')
+        rp = ReceiptPrinter(receipt)
+        act = rp.print_receipt()
+        dst = '''***<没钱赚商店>购物清单***
+名称：羽毛球，数量：4个，单价：1.00(元)，小计：3.00(元)
+----------------------
+买二赠一商品：
+名称：羽毛球，数量：1个
+----------------------
+总计：3.00(元)
+节省：1.00(元)
+**********************
+'''
+        self.assertEquals(act, dst)
+
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
