@@ -13,7 +13,7 @@ from commodity import Commodity
 # 说明：python中，模块（module）是全局唯一的，因此可利用这一点来实现一个单例模式，
 # 即，需要啥属性、方法，直接搞成全局的就可以了
 # 配置文件默认路径
-DEFAULT_CFG_FILE = r'cfg\cfg.json'
+_DEFAULT_CFG_FILE = r'cfg\cfg.json'
 
 # 全部商品信息
 commodities = {}
@@ -29,17 +29,13 @@ _cfg_info = None
 
 
 def set_cfg_file(f):
-    global DEFAULT_CFG_FILE
-    DEFAULT_CFG_FILE = f
-    _read_cfg_info(DEFAULT_CFG_FILE)
+    _read_cfg_info(f)
 
 
-def _read_cfg_info(cfg_file=None):
+def _read_cfg_info(cfg_file=_DEFAULT_CFG_FILE):
     '''
     读取配置信息
     '''
-    if cfg_file is None:
-        cfg_file = DEFAULT_CFG_FILE
 
     try:
         f = open(cfg_file)

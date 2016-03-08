@@ -19,7 +19,7 @@ class InputParser(object):
      ‰»ÎΩ‚Œˆ∆˜
     '''
 
-    DEFAULT_INPUT_FILE = r'input\input.json'
+    _DEFAULT_INPUT_FILE = r'input\input.json'
 
     @staticmethod
     def parse_line(s):
@@ -37,10 +37,7 @@ class InputParser(object):
         return barcode, quantity
 
     @classmethod
-    def parse(cls, input_file=None):
-
-        if input_file is None:
-            input_file = cls.DEFAULT_INPUT_FILE
+    def parse(cls, input_file=_DEFAULT_INPUT_FILE):
 
         f = open(input_file)
 
