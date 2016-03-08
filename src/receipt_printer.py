@@ -58,7 +58,7 @@ class ReceiptPrinter(object):
             
             saved_str = ''
             if ori.is_discount_of_5_percent:
-                saved_str = '，节省：{:.2f}(元)'.format(saved_money)
+                saved_str = '，节省{:.2f}(元)'.format(saved_money)
                 
             if ori.is_buy_2_get_1:
                 buy_2_get_1_str = self._ONE_BUY_2_GET_1_TEMPLATE.format(
@@ -69,6 +69,7 @@ class ReceiptPrinter(object):
                 name, quantity, unit, unit_price, final_price, saved_str)
             receipts.append(one_receipt)
 
+        total_saved_str = ''
         if is_saved_money:
             total_saved_str = '\n节省：{:.2f}(元)'.format(sum_saved_money)
 

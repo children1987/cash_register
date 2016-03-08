@@ -20,6 +20,13 @@
 			"unit": "瓶",
 			"unit_price": 3.0,
 			"classification": "食品"
+		},
+		{
+			"barcode": "ITEM000007",
+			"name": "手表",
+			"unit": "块",
+			"unit_price": 30000000.0,
+			"classification": "奢侈品"
 		}
 	],
 	

@@ -56,6 +56,17 @@ class Test(unittest.TestCase):
 '''
         self.assertEquals(act, dst)
 
+    def test03(self):
+        receipt = InputParser.parse(r'input\input03.json')
+        rp = ReceiptPrinter(receipt)
+        act = rp.print_receipt()
+        dst = '''***<没钱赚商店>购物清单***
+名称：手表，数量：2块，单价：30000000.00(元)，小计：60000000.00(元)
+----------------------
+总计：60000000.00(元)
+**********************
+'''
+        self.assertEquals(act, dst)
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

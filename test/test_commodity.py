@@ -19,7 +19,7 @@ class Test(unittest.TestCase):
         pass
 
     def testSingleton02(self):
-        self.assertEquals(len(cash_register.commodities), 3)
+        self.assertEquals(len(cash_register.commodities), 4)
 
 
 if __name__ == "__main__":
