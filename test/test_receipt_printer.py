@@ -57,6 +57,9 @@ class Test(unittest.TestCase):
         self.assertEquals(act, dst)
 
     def test03(self):
+        '''
+        仅仅单种不参加活动的商品
+        '''
         receipt = InputParser.parse(r'input\input03.json')
         rp = ReceiptPrinter(receipt)
         act = rp.print_receipt()
@@ -64,6 +67,21 @@ class Test(unittest.TestCase):
 名称：手表，数量：2块，单价：30000000.00(元)，小计：60000000.00(元)
 ----------------------
 总计：60000000.00(元)
+**********************
+'''
+        self.assertEquals(act, dst)
+
+    def test04(self):
+        '''
+        购买的“买二送一”商品未达到赠送条件
+        '''
+        receipt = InputParser.parse(r'input\input04.json')
+        rp = ReceiptPrinter(receipt)
+        act = rp.print_receipt()
+        dst = '''***<没钱赚商店>购物清单***
+名称：羽毛球，数量：2个，单价：1.00(元)，小计：2.00(元)
+----------------------
+总计：2.00(元)
 **********************
 '''
         self.assertEquals(act, dst)

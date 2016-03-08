@@ -59,9 +59,10 @@ class OneReceiptInfo(object):
         # barcode 是否参加买二赠一活动
         if self._is_in_buy_2_get_1(self.barcode):
             self._do_buy_2_get_1()
-            self.is_buy_2_get_1 = True
+            if self.saved_money:
+                self.is_buy_2_get_1 = True
             return
-        
+
         # barcode 是否参加95折活动
         if self._is_in_discount_of_5_percent(self.barcode):
             self._do_discount_of_5_percent()
