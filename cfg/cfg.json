@@ -1,0 +1,35 @@
+{
+	"commodities": [
+		{
+			"barcode": "ITEM000001",
+			"name": "羽毛球",
+			"unit": "个",
+			"unit_price": 1.0,
+			"classification": "文体用品"
+		},
+		{
+			"barcode": "ITEM000003",
+			"name": "苹果",
+			"unit": "斤",
+			"unit_price": 5.5,
+			"classification": "食品"
+		},
+		{
+			"barcode": "ITEM000005",
+			"name": "可口可乐",
+			"unit": "瓶",
+			"unit_price": 3.0,
+			"classification": "食品"
+		}
+	],
+	
+	"on_sale_info": {
+		"buy_2_get_1": [
+			"ITEM000005",
+			"ITEM000001"
+		],
+		"discount_of_5_percent": [
+			"ITEM000003"
+		]
+	}
+}
