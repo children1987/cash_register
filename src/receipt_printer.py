@@ -36,7 +36,11 @@ class ReceiptPrinter(object):
         '''
         self.receipt = receipt
 
-    def print_receipt(self):
+    def _gen_main_receipt(self):
+        '''
+        生成小票中的主体信息
+        return: 主体信息, 买二赠一信息, 是否有省钱, 省钱总数, 总计钱数
+        '''
         is_saved_money = False  # 是否有省钱
         sum_saved_money = 0.0
         sum_money = 0.0
@@ -69,6 +73,13 @@ class ReceiptPrinter(object):
                 name, quantity, unit, unit_price, final_price, saved_str)
             receipts.append(one_receipt)
 
+        return (receipts, buy_2_get_1_s, is_saved_money,
+                sum_saved_money, sum_money)
+
+    def print_receipt(self):
+
+        (receipts, buy_2_get_1_s, is_saved_money, sum_saved_money,
+            sum_money) = self._gen_main_receipt()
         total_saved_str = ''
         if is_saved_money:
             total_saved_str = '\n节省：{:.2f}(元)'.format(sum_saved_money)
